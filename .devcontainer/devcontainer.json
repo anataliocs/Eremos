@@ -1,11 +1,6 @@
 {
   "name": "Eremos Devcontainer",
-  "dockerFile": "mcr.microsoft.com/devcontainers/typescript-node:1-22",
-  "build": {
-    "args": {
-      "BUILDKIT_INLINE_CACHE": "1"
-    }
-  },
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22",
   "forwardPorts": [
     80
   ],
@@ -52,7 +47,7 @@
     "gh-copilot": ""
   },
   "postAttachCommand": {
-    "stellar-account" : "",
+    "stellar-account": "",
     "welcome-text": ""
   },
   "waitFor": "postStartCommand"
