@@ -1,0 +1,59 @@
+{
+  "name": "Eremos Devcontainer",
+  "dockerFile": "mcr.microsoft.com/devcontainers/typescript-node:1-22",
+  "build": {
+    "args": {
+      "BUILDKIT_INLINE_CACHE": "1"
+    }
+  },
+  "forwardPorts": [
+    80
+  ],
+  "portsAttributes": {
+    "80": {
+      "label": "http",
+      "onAutoForward": "openPreview",
+      "elevateIfNeeded": true
+    },
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.3": {
+      "configureZshAsDefaultShell": true
+    },
+    "ghcr.io/devcontainers/features/github-cli:1.0.14": {
+    },
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+      ]
+    },
+    "vscode": {
+      "extensions": [
+      ],
+      "settings": {
+        "telemetry.feedback.enabled": false,
+        "workbench.tips.enabled": false,
+        "editor.codeLens": false,
+        "editor.minimap.enabled": false,
+        "terminal.integrated.useWslProfiles": false,
+        "terminal.integrated.sendKeybindingsToShell": true,
+        "terminal.integrated.allowChords": true,
+      }
+    }
+  },
+  "initializeCommand": "",
+  "onCreateCommand": "chmod -R +x .devcontainer",
+  "updateContentCommand": "",
+  "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
+  "postStartCommand": {
+    "cli-autocomplete": "",
+    "gh-copilot": ""
+  },
+  "postAttachCommand": {
+    "stellar-account" : "",
+    "welcome-text": ""
+  },
+  "waitFor": "postStartCommand"
+}
